@@ -8,12 +8,12 @@ import (
 )
 
 type LLMResponse struct {
-	Description string `json:"description"` // Thay đổi theo cấu trúc JSON thực tế từ LLM
+	Description string `json:"description"`
 }
 
 func AnalyzeImageWithLLM(pixels []byte) (string, error) {
-	// Tạo yêu cầu đến LLM API (OpenAI ví dụ)
-	url := "https://api.openai.com/v1/chat/completions" // Thay thế bằng URL thực tế của mô hình LLM
+	// Tạo yêu cầu đến LLM API (
+	url := "https://api.openai.com/v1/chat/completions"
 
 	// Chuyển đổi pixels thành yêu cầu JSON
 	requestBody, err := json.Marshal(map[string]interface{}{
@@ -34,7 +34,7 @@ func AnalyzeImageWithLLM(pixels []byte) (string, error) {
 	if err != nil {
 		return "", fmt.Errorf("failed to create request: %v", err)
 	}
-	req.Header.Set("Authorization", "Bearer YOUR_SESSION_CODE") // Thay thế bằng API key của bạn
+	req.Header.Set("Authorization", "Bearer YOUR_SESSION_CODE")
 	req.Header.Set("Content-Type", "application/json")
 
 	client := &http.Client{}
